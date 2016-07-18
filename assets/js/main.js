@@ -1,7 +1,8 @@
 var commands = [
 	{
 		input: 'tail /etc/motd.tail',
-		output: "Hi, I'm Alex Moreno, web developer who lives in Curitiba. How can I help you?<br>",
+		output: "Hi, I'm Alex Moreno, web developer who lives in Curitiba. How can I help you?<br>"+
+				"If you prefer the normal version, <a href='https://alexdev.com.br/portfolio'> click  here</a><br>"
 	},{
 		input: 'tail -f ./skills',
 		output: "PHP, Codeigniter, Laravel 5, SlimPHP <br>"+
@@ -35,7 +36,7 @@ var commands = [
 		]
 
 	},{
-		input: 'tail -f ./contact',
+		input: 'ls -l ./contact',
 		output: '<a target="_blank" href="mailto:alexmorenodealmeida@gmail.com">email</a><br> '+
 				'<a target="_blank" href="http://alexdev.com.br/portfolio/#contact">form on portfolio</a><br>'
 				
@@ -85,6 +86,7 @@ function inputCommand(){
 
 	var typeText = function(){
 		setTimeout(function(){
+			console.log(cmd);
 			var char = cmd.input[charIndex]
 			if (char == undefined) {
 				
@@ -100,6 +102,7 @@ function inputCommand(){
       			}, 1000)
 				return
 			}
+			
 			$el.append(char)
 			charIndex++
 			typeText()
